@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h2>📊 Attendance Dashboard</h2>
+
+<table>
+<tr>
+<th>ID</th><th>Date</th><th>Status</th><th>Action</th>
+</tr>
+
+{% for r in records %}
+<tr class="{{ r[2] }}">
+<td>{{ r[0] }}</td>
+<td>{{ r[1] }}</td>
+<td>{{ r[2] }}</td>
+<td>
+<a href="/edit/{{r[0]}}/{{r[1]}}/Present">P</a>
+<a href="/edit/{{r[0]}}/{{r[1]}}/Absent">A</a>
+</td>
+</tr>
+{% endfor %}
+</table>
+
+<br>
+<a href="/share">📤 Share on WhatsApp</a>
+
+</body>
+</html>
